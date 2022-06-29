@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "co": "npm run lint && git add . && sui-mono commit",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -14,7 +15,39 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@s-ui/mono": "2.30.0",
+    "autoprefixer": "10.4.7",
     "eslint": "8.18.0",
-    "eslint-config-next": "12.2.0"
-  }
+    "eslint-config-next": "12.2.0",
+    "eslint-config-standard": "17.0.0",
+    "postcss": "8.4.14",
+    "tailwindcss": "3.1.4"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "node": true
+    },
+    "globals": {
+      "JSX": true
+    },
+    "extends": [
+      "plugin:react/recommended",
+      "next/core-web-vitals",
+      "standard"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "plugins": ["react"]
+  },
+  "eslintIgnore": [
+    "node_modules",
+    ".next"
+  ]
 }

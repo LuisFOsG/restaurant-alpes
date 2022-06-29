@@ -10,6 +10,7 @@
 
 # next.js
 /.next/
+/.swc/
 /out/
 
 # production
@@ -30,3 +31,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+package-lock.json
+yarn.lock
