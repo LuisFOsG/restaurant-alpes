@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  * {
+    @apply outline-none;
+  }
+}
+
+@layer utilities {}
+
+@layer components {
+  .image-height {
+    @apply h-40;
+  }
+
+  @media (min-width: 768px) {
+    .image-height {
+      height: calc(100vh - 5rem);
+    }
+  }
+}
