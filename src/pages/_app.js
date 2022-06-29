@@ -1,8 +1,9 @@
 import Head from 'next/head'
 
-import 'styles/globals.css'
-
+import { RestaurantContextProvider } from 'context/restautantContext'
 import AppLayout from 'layouts/app-layout'
+
+import 'styles/globals.css'
 
 function MyApp ({ Component, pageProps }) {
   return (
@@ -13,9 +14,11 @@ function MyApp ({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <AppLayout>
-        <Component {...pageProps} />
-      </AppLayout>
+      <RestaurantContextProvider>
+        <AppLayout>
+          <Component {...pageProps} />
+        </AppLayout>
+      </RestaurantContextProvider>
     </>
   )
 }

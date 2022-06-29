@@ -1,7 +1,11 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Head from 'next/head'
 
+import RestaurantContext from 'context/restautantContext'
+
 export default function Contacts () {
+  const { showAlert } = useContext(RestaurantContext)
+
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [newsletter, setNewsletter] = useState(false)
@@ -28,6 +32,7 @@ export default function Contacts () {
     }
 
     console.log(data)
+    showAlert('Gracias por Contactarnos', 'success')
 
     setName('')
     setEmail('')
@@ -75,7 +80,7 @@ export default function Contacts () {
                 checked={newsletter}
                 onChange={handleNewsletter}
               />
-              <label htmlFor="newsletter"> Suscribete a nuestro newsletter</label>
+              <label className="cursor-pointer" htmlFor="newsletter"> Suscribete a nuestro newsletter</label>
             </div>
 
             <div className="text-center">
