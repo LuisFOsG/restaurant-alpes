@@ -12,7 +12,8 @@
   "dependencies": {
     "next": "12.2.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "yelp-fusion": "^3.0.0"
   },
   "devDependencies": {
     "@s-ui/mono": "2.30.0",
@@ -44,7 +45,9 @@
       "ecmaVersion": "latest",
       "sourceType": "module"
     },
-    "plugins": ["react"]
+    "plugins": [
+      "react"
+    ]
   },
   "eslintIgnore": [
     "node_modules",

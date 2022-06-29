@@ -1,6 +1,11 @@
 import Head from 'next/head'
+import useRestaurants from 'hooks/useRestaurants'
 
 export default function Restaurants () {
+  const restaurants = useRestaurants()
+
+  console.log(restaurants)
+
   return (
     <div>
       <Head>
