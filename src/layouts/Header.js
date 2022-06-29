@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const Header = () => {
   return (
-    <div className="w-full h-20 bg-cyan-600">
+    <div className="w-full h-20 bg-cyan-600 z-50">
       <div className="h-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
         <div className="flex items-center">
           <Link href="/">
