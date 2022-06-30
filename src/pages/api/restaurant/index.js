@@ -3,8 +3,6 @@
 export default async function handler (req, res) {
   const { term, location } = req.query
 
-  console.log(term, location)
-
   const API = 'https://api.yelp.com/v3'
   const YULP_API = process.env.API_YELP_FUSION
 

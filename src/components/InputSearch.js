@@ -13,7 +13,7 @@ const InputSearch = () => {
     const searchRestaurant = (searchQuery, termQuery) => {
       searchRestaurants(searchQuery, termQuery)
     }
-    return debounce(searchRestaurant, 300)
+    return debounce(searchRestaurant, 700)
   }, [])
 
   useEffect(() => {
@@ -21,11 +21,15 @@ const InputSearch = () => {
   }, [searchLocation, term, searchFn])
 
   const handleSearchLocation = (e) => {
-    setSearchLocation(e.target.value)
+    setSearchLocation(() => {
+      return e.target.value
+    })
   }
 
   const handleTerm = (e) => {
-    setTerm(e.target.value)
+    setTerm(() => {
+      return e.target.value
+    })
   }
 
   return (

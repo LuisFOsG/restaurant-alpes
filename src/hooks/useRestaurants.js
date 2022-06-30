@@ -11,10 +11,17 @@ const useRestaurants = () => {
   }, [])
 
   const searchRestaurants = (location, term) => {
-    fetch(`/api/restaurant?term=${term}&location=${location}`).then(res => res.json()).then(data => {
-      if (data.error) return setRestaurants([])
-      setRestaurants(data.businesses)
-    })
+    if (location === '' && term === '') {
+      fetch('/api/restaurant').then(res => res.json()).then(data => {
+        if (data.error) return setRestaurants([])
+        setRestaurants(data.businesses)
+      })
+    } else {
+      fetch(`/api/restaurant?term=${term}&location=${location}`).then(res => res.json()).then(data => {
+        if (data.error) return setRestaurants([])
+        setRestaurants(data.businesses)
+      })
+    }
   }
 
   const getRestaurant = async (id) => {
