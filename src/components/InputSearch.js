@@ -13,7 +13,7 @@ const InputSearch = () => {
     const searchRestaurant = (searchQuery, termQuery) => {
       searchRestaurants(searchQuery, termQuery)
     }
-    return debounce(searchRestaurant, 500)
+    return debounce(searchRestaurant, 300)
   }, [])
 
   useEffect(() => {

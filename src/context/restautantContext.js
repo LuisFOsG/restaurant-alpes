@@ -19,8 +19,6 @@ export const RestaurantContextProvider = ({ children }) => {
   const [lastLocation, setLastLocation] = useState('')
 
   const newSearchRestaurants = (location, term) => {
-    console.log(term, location)
-
     if (term !== lastTerm || location !== lastLocation) {
       searchRestaurants(location, term)
       setLastTerm(term)

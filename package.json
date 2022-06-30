@@ -13,8 +13,7 @@
     "just-debounce-it": "3.0.1",
     "next": "12.2.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "yelp-fusion": "^3.0.0"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@s-ui/mono": "2.30.0",
