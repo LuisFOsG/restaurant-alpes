@@ -8,6 +8,7 @@ const Context = createContext({
   restaurants: [],
   searchRestaurants: () => {},
   getRestaurant: () => {},
+  lastLocation: '',
   lastTerm: ''
 })
 
@@ -15,11 +16,15 @@ export const RestaurantContextProvider = ({ children }) => {
   const { AlertComponent, showAlert } = useAlert()
   const { restaurants, searchRestaurants, getRestaurant } = useRestaurants()
   const [lastTerm, setLastTerm] = useState('')
+  const [lastLocation, setLastLocation] = useState('')
 
-  const newSearchRestaurants = (term) => {
-    if (term !== lastTerm) {
-      searchRestaurants(term)
+  const newSearchRestaurants = (location, term) => {
+    console.log(term, location)
+
+    if (term !== lastTerm || location !== lastLocation) {
+      searchRestaurants(location, term)
       setLastTerm(term)
+      setLastLocation(location)
     }
   }
 
@@ -28,7 +33,8 @@ export const RestaurantContextProvider = ({ children }) => {
     restaurants,
     searchRestaurants: newSearchRestaurants,
     getRestaurant,
-    lastTerm
+    lastTerm,
+    lastLocation
   }
 
   return (
