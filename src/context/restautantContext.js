@@ -1,15 +1,20 @@
 import { createContext } from 'react'
+
 import useAlert from 'hooks/useAlert'
+import useRestaurants from 'hooks/useRestaurants'
 
 const Context = createContext({
-  showAlert: () => {}
+  showAlert: () => {},
+  restaurants: []
 })
 
 export const RestaurantContextProvider = ({ children }) => {
   const { AlertComponent, showAlert } = useAlert()
+  const restaurants = useRestaurants()
 
   const VALUES = {
-    showAlert
+    showAlert,
+    restaurants
   }
 
   return (

@@ -1,11 +1,13 @@
+import { useContext } from 'react'
 import Head from 'next/head'
-import useRestaurants from 'hooks/useRestaurants'
+
+import RestaurantContext from 'context/restautantContext'
 
 import Restaurant from 'components/Restaurant'
 import InputSearch from 'components/InputSearch'
 
 export default function Restaurants () {
-  const restaurants = useRestaurants()
+  const { restaurants } = useContext(RestaurantContext)
 
   return (
     <div>

@@ -4,7 +4,7 @@ import Image from 'next/image'
 const Restaurant = ({ restaurant }) => {
   return (
     <Link href={`/restaurant/${restaurant.id}`}>
-      <div className="border p-8 rounded-lg border-solid border-cyan-800 hover:bg-slate-400/20 cursor-pointer">
+      <div className="border rounded-lg border-solid border-cyan-800 p-8 hover:bg-slate-400/20 cursor-pointer">
         <div className="relative w-full h-60 rounded-lg">
           <Image className='rounded-lg' src={restaurant.image_url} alt="Inicio" layout='fill' objectFit="cover" />
         </div>
