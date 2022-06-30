@@ -1,6 +1,10 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+
+import RestaurantContext from 'context/restautantContext'
 
 const InputSearch = () => {
+  const { searchRestaurants } = useContext(RestaurantContext)
+
   const [search, setSearch] = useState('')
 
   const handleSearch = (e) => {
@@ -10,8 +14,7 @@ const InputSearch = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    console.log(search)
-    setSearch('')
+    searchRestaurants(search)
   }
 
   return (

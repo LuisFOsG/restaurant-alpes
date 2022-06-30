@@ -20,13 +20,21 @@ export default function Restaurants () {
 
         <InputSearch />
 
-        <div className='mt-16 w-full grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5 p-4'>
-          {
-            restaurants.map(restaurant => (
-              <Restaurant key={restaurant.id} restaurant={restaurant} />
-            ))
-          }
-        </div>
+        {
+          restaurants.length <= 0
+            ? (
+              <div className='mt-5 text-center text-xl text-gray-600'>No hay restaurantes para mostrar</div>
+              )
+            : (
+              <div className='mt-16 w-full grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5 p-4'>
+                {
+                  restaurants.map(restaurant => (
+                    <Restaurant key={restaurant.id} restaurant={restaurant} />
+                  ))
+                }
+              </div>
+              )
+        }
       </div>
     </div>
   )

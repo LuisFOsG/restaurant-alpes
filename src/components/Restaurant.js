@@ -6,7 +6,15 @@ const Restaurant = ({ restaurant }) => {
     <Link href={`/restaurant/${restaurant.id}`}>
       <div className="border rounded-lg border-solid border-cyan-800 p-8 hover:bg-slate-400/20 cursor-pointer">
         <div className="relative w-full h-60 rounded-lg">
-          <Image className='rounded-lg' src={restaurant.image_url} alt="Inicio" layout='fill' objectFit="cover" />
+          {
+            restaurant.image_url
+              ? (
+                  <Image className='rounded-lg' src={restaurant.image_url} alt={restaurant.name} layout='fill' objectFit="cover" />
+                )
+              : (
+                  <Image className='rounded-lg' src={'https://i.imgur.com/vDNCHXg.jpg'} alt={restaurant.name} layout='fill' objectFit="cover" />
+                )
+          }
         </div>
 
         <div className="mt-5">

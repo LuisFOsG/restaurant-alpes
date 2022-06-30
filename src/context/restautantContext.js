@@ -5,16 +5,20 @@ import useRestaurants from 'hooks/useRestaurants'
 
 const Context = createContext({
   showAlert: () => {},
-  restaurants: []
+  restaurants: [],
+  searchRestaurants: () => {},
+  getRestaurant: () => {}
 })
 
 export const RestaurantContextProvider = ({ children }) => {
   const { AlertComponent, showAlert } = useAlert()
-  const restaurants = useRestaurants()
+  const { restaurants, searchRestaurants, getRestaurant } = useRestaurants()
 
   const VALUES = {
     showAlert,
-    restaurants
+    restaurants,
+    searchRestaurants,
+    getRestaurant
   }
 
   return (

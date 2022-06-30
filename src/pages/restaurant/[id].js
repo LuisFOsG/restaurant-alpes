@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -6,12 +6,29 @@ import Link from 'next/link'
 import RestaurantContext from 'context/restautantContext'
 
 const Restaurant = () => {
-  const { restaurants } = useContext(RestaurantContext)
+  const { getRestaurant } = useContext(RestaurantContext)
+  const [loading, setLoading] = useState(true)
+  const [restaurant, setRestaurant] = useState(null)
 
   const router = useRouter()
   const { id } = router.query
 
-  const restaurant = restaurants.find(restaurant => restaurant.id === id)
+  useEffect(() => {
+    getRestaurant(id).then((data) => {
+      if (data.error) return setLoading(false)
+      setRestaurant(data)
+      setLoading(false)
+    })
+  }, [getRestaurant, id])
+
+  if (loading) {
+    return (
+      <div className="content-height flex justify-center items-center">
+        <h1 className="text-4xl font-bold text-sky-500">Cargando...</h1>
+      </div>
+    )
+  }
+
   if (!restaurant) {
     return (
       <div className="content-height flex justify-center items-center">
@@ -24,7 +41,15 @@ const Restaurant = () => {
     <div className="flex flex-col md:flex-row w-full content-height p-16 gap-10">
       <div className='flex justify-center items-center w-full h-full'>
         <div className="relative w-full h-96">
-          <Image src={restaurant.image_url} alt="Inicio" layout='fill' objectFit="contain" />
+          {
+            restaurant.image_url
+              ? (
+                  <Image className='rounded-lg' src={restaurant.image_url} alt={restaurant.name} layout='fill' objectFit="contain" />
+                )
+              : (
+                  <Image className='rounded-lg' src={'https://i.imgur.com/vDNCHXg.jpg'} alt={restaurant.name} layout='fill' objectFit="contain" />
+                )
+          }
         </div>
       </div>
 
