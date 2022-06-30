@@ -11,9 +11,7 @@ const useRestaurants = () => {
   }, [])
 
   const searchRestaurants = (term) => {
-    console.log(term)
     fetch(`/api/restaurant?term=${term}`).then(res => res.json()).then(data => {
-      console.log(data)
       if (data.error) return setRestaurants([])
       setRestaurants(data.businesses)
     })
