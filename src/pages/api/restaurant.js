@@ -9,7 +9,7 @@ export default async function handler (req, res) {
     Authorization: `Bearer ${YULP_API}`
   }
 
-  const resFetch = await fetch(`${API}/autocomplete?text=del&latitude=37.786882&longitude=-122.399972`, {
+  const resFetch = await fetch(`${API}/businesses/search?location=San+Francisco`, {
     method: 'GET',
     headers: HEADERS
   })
