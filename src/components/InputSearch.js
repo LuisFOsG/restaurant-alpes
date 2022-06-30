@@ -22,7 +22,7 @@ const InputSearch = () => {
           className='w-11/12 md:w-1/3 h-14 p-5 text-2xl border border-dotted border-black bg-white rounded-lg placeholder:text-back/40'
           value={search}
           onChange={handleSearch}
-          placeholder="Busca un Restaurante o Lugar"
+          placeholder="Busca un Restaurante"
         />
         <button
           className='mt-5 md:mt-0 md:ml-5 px-14 py-3 rounded-full text-xl font-bold text-white bg-black hover:bg-black/80'

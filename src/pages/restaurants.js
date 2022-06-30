@@ -18,7 +18,7 @@ export default function Restaurants () {
 
         <InputSearch />
 
-        <div className='grid'>
+        <div className='mt-16 w-full grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5 p-4'>
           {
             restaurants.map(restaurant => (
               <Restaurant key={restaurant.id} restaurant={restaurant} />
